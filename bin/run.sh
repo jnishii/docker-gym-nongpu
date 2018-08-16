@@ -5,7 +5,7 @@ DKUSER=jovyan
 DKHOME=/home/${DKUSER}
 PWD=`pwd`
 WD=${PWD}/${DKUSER}
-IMAGE=jnishii/nongpu-ple-gym
+IMAGE=jnishii/docker-gym-ple-nongpu
 
 runJupyterBG(){
 	echo "running docker background mode..."
