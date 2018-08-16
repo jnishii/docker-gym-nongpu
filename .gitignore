@@ -1,2 +1,6 @@
 *~
 #jovyan/
+.cache/
+.ipython/
+.jupyter/
+.local
