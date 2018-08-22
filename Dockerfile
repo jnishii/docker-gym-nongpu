@@ -54,6 +54,13 @@ RUN python3 -m pip install -r /tmp/requirements_1.txt
 COPY requirements_2.txt /tmp/
 RUN python3 -m pip install -r /tmp/requirements_2.txt
 
+# Install gridworld
+ENV GYMDIR /usr/local/lib/python3.5/dist-packages/gym/envs/
+COPY gridworld-gym/env_register.txt /tmp/
+RUN cat /tmp/env_register.txt >> ${GYMDIR}/__init__.py
+COPY gridworld-gym/envs/mdp_gridworld.py ${GYMDIR}/toy_text/
+RUN  echo "from gym.envs.toy_text.mdp_gridworld import MDPGridworldEnv" >> ${GYMDIR}/toy_text/__init__.py
+
 # Install jupyter.sh
 COPY jupyter.sh /usr/bin
 

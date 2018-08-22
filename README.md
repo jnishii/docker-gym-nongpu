@@ -7,6 +7,8 @@ This docker image is developed based on [jaimeps/docker-rl-gym](https://github.c
 ## Chqanges from [jaimeps/docker-rl-gym](https://github.com/jaimeps/docker-rl-gym).
 
 - added [PyGame Learning Environment](http://pygame-learning-environment.readthedocs.io/)
+- added mdp_gridworld to gym from [CptS 580 Reinforcement Learning
+](https://github.com/IRLL/reinforcement_learning_class)
 - added jupyter lab
 - added script to start jupyter
 - added user `jovyan`
@@ -32,6 +34,7 @@ This docker image is developed based on [jaimeps/docker-rl-gym](https://github.c
 
 **4. Environments:**
 - [AI Gym](https://github.com/openai/gym)
+	- with [mdp_gridworld](https://github.com/IRLL/reinforcement_learning_class)
 - [PyGame Learning Environment](http://pygame-learning-environment.readthedocs.io/)
 
 **5. Others:** 
