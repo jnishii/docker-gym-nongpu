@@ -1,0 +1,6 @@
+# https://github.com/IRLL/reinforcement_learning_class/tree/master/gym
+register(
+    id='MDPGridworld-v0',
+    entry_point='gym.envs.toy_text:MDPGridworldEnv',
+    timestep_limit=100,
+)
