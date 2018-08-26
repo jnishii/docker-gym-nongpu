@@ -10,6 +10,7 @@ This docker image is developed based on [jaimeps/docker-rl-gym](https://github.c
 - added mdp_gridworld to gym from [CptS 580 Reinforcement Learning
 ](https://github.com/IRLL/reinforcement_learning_class)
 - added jupyter lab
+- added scikit image
 - added script to start jupyter
 - added user `jovyan`
 - mount docker:/home/jovyan on ./jovyan 
@@ -38,6 +39,7 @@ This docker image is developed based on [jaimeps/docker-rl-gym](https://github.c
 - [PyGame Learning Environment](http://pygame-learning-environment.readthedocs.io/)
 
 **5. Others:** 
+- [scikit-image](https://scikit-image.org/)
 - [ipywidgets](https://ipywidgets.readthedocs.io/en/stable/index.html)
 - [h5py](http://www.h5py.org/)
 

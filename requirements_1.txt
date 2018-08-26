@@ -2,7 +2,8 @@
 pandas 
 jupyter
 jupyterlab
-scipy 
+scipy
+scikit-image
 matplotlib 
 spyder
 pyvirtualdisplay
