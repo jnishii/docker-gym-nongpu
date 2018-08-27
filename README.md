@@ -1,7 +1,7 @@
 # Docker - RL & OpenAI Gym
 
 ## Description:
-A Docker environment for reinforcement learning in Python 3 including the OpenAI Gym toolkit and PyGame Learning Environment (PLE).
+A Docker image with the OpenAI Gym toolkit and PyGame Learning Environment (PLE).
 This docker image is developed based on [jaimeps/docker-rl-gym](https://github.com/jaimeps/docker-rl-gym).
 
 ## Chqanges from [jaimeps/docker-rl-gym](https://github.com/jaimeps/docker-rl-gym).
