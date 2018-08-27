@@ -37,24 +37,29 @@ RUN apt-get update \
         libopenblas-base  \
         libatlas-dev  \
 #        cython3  \
+     && apt-get upgrade \
      && apt-get clean \
      && rm -rf /var/lib/apt/lists/*
 
-# Upgrade pip
+# use python3.5 as default
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.5 1
+RUN sudo update-alternatives --config python
+
+# upgrade pip
 RUN python3 -m pip install --upgrade pip
 
-# Delete numpy that doesn't match to tensorflow 1.10.0
+# delete numpy that doesn't match to tensorflow 1.10.0
 RUN python3 -m pip uninstall numpy
 
-# Install Python packages - Step 1
+# install Python packages - Step 1
 COPY requirements_1.txt /tmp/
 RUN python3 -m pip install -r /tmp/requirements_1.txt
 
-# Install Python packages - Step 2 (OpenAI Gym)
+# install Python packages - Step 2 (OpenAI Gym)
 COPY requirements_2.txt /tmp/
 RUN python3 -m pip install -r /tmp/requirements_2.txt
 
-# Install gridworld
+# install gridworld
 ENV GYMDIR /usr/local/lib/python3.5/dist-packages/gym/envs/
 COPY gridworld-gym/env_register.txt /tmp/
 RUN cat /tmp/env_register.txt >> ${GYMDIR}/__init__.py
@@ -63,9 +68,6 @@ RUN  echo "from gym.envs.toy_text.mdp_gridworld import MDPGridworldEnv" >> ${GYM
 
 # Install jupyter.sh
 COPY jupyter.sh /usr/bin
-
-# clean up
-RUN apt-get clean
 
 # create user pochi(uid=1000, gid=1000)
 ENV USER jovyan
@@ -89,13 +91,13 @@ VOLUME /tmp/.X11-unix
 VOLUME ${HOME}
 USER ${USER}
 
-#CMD [ "/bin/bash" ]
+CMD [ "/bin/bash" ]
 
 # Jupyter notebook with virtual frame buffer for rendering
-CMD cd /${HOME} \
-    && xvfb-run -s "-screen 0 1400x900x24" \
-    /usr/local/bin/jupyter notebook \
-    --port=8888 --ip=0.0.0.0 --allow-root 
+#CMD cd /${HOME} \
+#    && xvfb-run -s "-screen 0 1400x900x24" \
+#    /usr/local/bin/jupyter notebook \
+#    --port=8888 --ip=0.0.0.0 --allow-root 
 
 
 
