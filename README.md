@@ -1,7 +1,7 @@
 # Docker - RL & OpenAI Gym
 
 ## Description:
-A Docker environment for reinforcement learning in Python 3 including the OpenAI Gym toolkit and PyGame Learning Environment (PLE).
+A Docker image with the OpenAI Gym toolkit and PyGame Learning Environment (PLE).
 This docker image is developed based on [jaimeps/docker-rl-gym](https://github.com/jaimeps/docker-rl-gym).
 
 ## Chqanges from [jaimeps/docker-rl-gym](https://github.com/jaimeps/docker-rl-gym).
@@ -45,15 +45,15 @@ This docker image is developed based on [jaimeps/docker-rl-gym](https://github.c
 
 ## Docker Hub
 
-You can directly pull the [built image from Docker Hub](https://hub.docker.com/r/jaimeps/rl-gym/) by running
+You can directly pull the [built image from Docker Hub](https://hub.docker.com/r/jnishii/docker-gym-ple-nongpu/) by 
 ```
-docker pull jaimeps/rl-gym
+docker pull jnishii/docker-gym-ple-nongpu
 ```
 
 ## Rendering on Jupyter notebook
 
-The virtual frame buffer allows the video from the gym environments to be rendered on jupyter notebooks. 
-Simple example with Breakout:
+The best way to render animations of openAI gym on Jupyter notebook is to use virtual frame buffer as introduced by [jaimeps/docker-rl-gym](https://github.com/jaimeps/docker-rl-gym).
+Here is an example:
 ```
 import gym
 from IPython import display
@@ -62,10 +62,11 @@ import matplotlib.pyplot as plt
 
 env = gym.make('Breakout-v0')
 env.reset()
-for _ in range(1000):
+for _ in range(50):
     plt.imshow(env.render(mode='rgb_array'))
     display.clear_output(wait=True)
     display.display(plt.gcf())
-    env.step(env.action_space.sample())
+    action=env.action_space.sample()
+    env.step(action)
 ```
 
