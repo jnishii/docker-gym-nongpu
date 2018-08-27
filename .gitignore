@@ -1,9 +1,3 @@
 *~
 .DS_Store
-#jovyan/
-jovyan/.ipynb_checkpoints
-jovyan/.local
-jovyan/.cache
-jovyan/.jupyter
-jovyan/.ipython
-jovyan/video*
+jovyan/
