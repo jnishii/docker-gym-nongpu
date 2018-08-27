@@ -34,8 +34,7 @@ This docker image is developed based on [jaimeps/docker-rl-gym](https://github.c
 - [TensorForce](https://github.com/reinforceio/tensorforce)
 
 **4. Environments:**
-- [AI Gym](https://github.com/openai/gym)
-	- with [mdp_gridworld](https://github.com/IRLL/reinforcement_learning_class)
+- [AI Gym](https://github.com/openai/gym) with [mdp_gridworld](https://github.com/IRLL/reinforcement_learning_class)
 - [PyGame Learning Environment](http://pygame-learning-environment.readthedocs.io/)
 
 **5. Others:** 
@@ -50,10 +49,30 @@ You can directly pull the [built image from Docker Hub](https://hub.docker.com/r
 docker pull jnishii/docker-gym-ple-nongpu
 ```
 
+## Running jupyter
+
+Jupyter notebook will run by 
+```
+$ bin/run.sh
+```
+
+## Running bash terminal
+
+If you want to run a bash terminal instead of jupyter, just edit the bottom of the Dockerfile and build the image. Then type
+```
+$ bin/run-X.sh
+```
+Typing `jupyter.sh` on the bash terminal will start jupyter.
+
+If you're running Docker on Mac, you should install XQuartz and socat (`brew install socat`), and run the following command beforehand:
+```
+$ socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\"
+```
+
 ## Rendering on Jupyter notebook
 
-The best way to render animations of openAI gym on Jupyter notebook is to use virtual frame buffer as introduced by [jaimeps/docker-rl-gym](https://github.com/jaimeps/docker-rl-gym).
-Here is an example:
+The best way to render animations of openAI gym on Jupyter notebook is to use virtual frame buffer as introduced by [jaimeps/docker-rl-gym](https://github.com/jaimeps/docker-rl-gym). Here is an example:
+
 ```
 import gym
 from IPython import display
