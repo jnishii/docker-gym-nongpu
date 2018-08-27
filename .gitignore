@@ -1,7 +1,7 @@
 *~
 #jovyan/
-jovyan/.ipynb_checkpoints/
-jovyan/.ipynb_checkpoints/*
-jovyan/.local/
-jovyan/.local/*
+jovyan/.ipynb_checkpoints
+jovyan/.local
+jovyan/.cache
+jovyan/.jupyter
 jovyan/.ipython
