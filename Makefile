@@ -4,9 +4,7 @@ build:
 	docker build --force-rm=true -t ${IMAGE} .
 
 run:
-	docker run -it --rm ${IMAGE}
-#	docker run -it --rm -e XMODIFIERS -v /tmp/.X11-unix:/tmp/.X11-unix \
-#		-v `pwd`:/home/pochi/ jnishii/nongpu-ple-gym
+	bin/run.sh
 
 ps:
 	docker ps -a
