@@ -79,7 +79,7 @@ You can check `<container name>` by `$ docker ps`.
 
 ## Rendering on Jupyter notebook
 
-The best way to render animations of openAI gym on Jupyter notebook is to use virtual frame buffer as introduced by [jaimeps/docker-rl-gym](https://github.com/jaimeps/docker-rl-gym). Here is an example:
+I think the best way to render animations of openAI gym on Jupyter notebook is to use virtual frame buffer as introduced by [jaimeps/docker-rl-gym](https://github.com/jaimeps/docker-rl-gym). Here is an example:
 
 ```
 import gym
