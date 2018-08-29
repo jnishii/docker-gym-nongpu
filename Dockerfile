@@ -14,6 +14,8 @@ RUN apt-get update \
         apt-utils \
         build-essential \
         sudo \
+        less \
+        jed \
         g++  \
         git  \
         curl  \
@@ -37,7 +39,7 @@ RUN apt-get update \
         libopenblas-base  \
         libatlas-dev  \
 #        cython3  \
-     && apt-get upgrade \
+     && apt-get upgrade -y \
      && apt-get clean \
      && rm -rf /var/lib/apt/lists/*
 
