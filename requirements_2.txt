@@ -1,2 +1,5 @@
 # AI Gym
 gym[all]
+
+# PyGame
+pygame

@@ -57,7 +57,7 @@ RUN python3 -m pip uninstall numpy
 COPY requirements_1.txt /tmp/
 RUN python3 -m pip install -r /tmp/requirements_1.txt
 
-# install Python packages - Step 2 (OpenAI Gym)
+# install Python packages - Step 2 (OpenAI Gym/PyGame)
 COPY requirements_2.txt /tmp/
 RUN python3 -m pip install -r /tmp/requirements_2.txt
 
@@ -71,7 +71,7 @@ RUN  echo "from gym.envs.toy_text.mdp_gridworld import MDPGridworldEnv" >> ${GYM
 # Install jupyter.sh
 COPY jupyter.sh /usr/bin
 
-# create user pochi(uid=1000, gid=1000)
+# create user account
 ENV USER jovyan
 ENV HOME /home/${USER}
 RUN export uid=1000 gid=1000 &&\

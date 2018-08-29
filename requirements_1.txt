@@ -16,13 +16,10 @@ keras-rl
 baselines
 tensorforce
 
-# AI Gym requirements
+# openAI Gym requirements
 PyOpenGL
 piglet
 pyglet
-
-# PyGame
-pygame
 
 # Other
 JSAnimation
