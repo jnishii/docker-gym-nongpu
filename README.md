@@ -51,25 +51,33 @@ You can git clone from [jnishii/docker-gym-ple-nongpu](https://github.com/jnishi
 ## Docker Hub
 
 You can directly pull the [built image from Docker Hub](https://hub.docker.com/r/jnishii/docker-gym-ple-nongpu/) by 
+
 ```
-docker pull jnishii/docker-gym-ple-nongpu
+$ docker pull jnishii/docker-gym-ple-nongpu
 ```
 
 ## start Docker
 
 Run the following command then Jupyter notebook will run.
+
 ```
+$ mkdir jovyan
 $ bin/run.sh
 ```
+
+`./jovyan` is mounted on `/home/jovyan` and the docker image.
+
 
 ## bash login
 
 If you use Docker on Mac and need X forwarding, you should install XQuartz and socat (`brew install socat`), and run the following command beforehand on XQuartz:
+
 ```
 $ socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\"
 ```
 
 You can login on bash terminal by:
+
 ```
 $ docker exec -it <container name> /bin/bash
 ```
