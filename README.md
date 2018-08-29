@@ -85,7 +85,7 @@ $ docker exec -it <container name> /bin/bash
 You can check `<container name>` by `$ docker ps`.
 
 
-## Rendering on Jupyter notebook
+## Rendering animations on Jupyter notebook
 
 I think the best way to render animations of openAI gym on Jupyter notebook is to use virtual frame buffer as introduced by [jaimeps/docker-rl-gym](https://github.com/jaimeps/docker-rl-gym). Here is an example:
 
