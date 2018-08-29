@@ -4,7 +4,7 @@ IP=`ipconfig getifaddr en0`
 IMAGE=jnishii/docker-gym-ple-nongpu
 USER=jovyan
 
-xhost +
+xhost + ${IP}
 
 [ ! -d ${USER} ] && mkdir ${USER}
 PWD=`pwd`
@@ -17,7 +17,4 @@ docker run -it --rm \
 		-v ${WD}:/home/ \
 		${IMAGE}
 
-#	docker run -it --rm -e XMODIFIERS -v /tmp/.X11-unix:/tmp/.X11-unix \
-#		-v `pwd`/pochi:/home/pochi/ jnishii/nongpu-ple-gym
-
-xhost - ${IP}
+xhost -

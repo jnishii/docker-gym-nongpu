@@ -1,6 +1,7 @@
-# Docker - RL & OpenAI Gym
+# Docker - RL & OpenAI Gym & Jupyter
+ 
+## Description
 
-## Description:
 A Docker image with the OpenAI Gym toolkit and PyGame Learning Environment (PLE).
 This docker image is developed based on [jaimeps/docker-rl-gym](https://github.com/jaimeps/docker-rl-gym).
 
@@ -15,7 +16,7 @@ This docker image is developed based on [jaimeps/docker-rl-gym](https://github.c
 - added user `jovyan`
 - mount docker:/home/jovyan on ./jovyan 
 
-## Includes: 
+## Includes
 
 **1. Basics:** 
 - [NumPy](http://www.numpy.org/)
@@ -42,6 +43,11 @@ This docker image is developed based on [jaimeps/docker-rl-gym](https://github.c
 - [ipywidgets](https://ipywidgets.readthedocs.io/en/stable/index.html)
 - [h5py](http://www.h5py.org/)
 
+
+## Git Hub
+
+You can git clone from [jnishii/docker-gym-ple-nongpu](https://github.com/jnishii/docker-gym-ple-nongpu)
+
 ## Docker Hub
 
 You can directly pull the [built image from Docker Hub](https://hub.docker.com/r/jnishii/docker-gym-ple-nongpu/) by 
@@ -49,25 +55,27 @@ You can directly pull the [built image from Docker Hub](https://hub.docker.com/r
 docker pull jnishii/docker-gym-ple-nongpu
 ```
 
-## Running jupyter
+## start Docker
 
-Jupyter notebook will run by 
+Run the following command then Jupyter notebook will run.
 ```
 $ bin/run.sh
 ```
 
-## Running bash terminal
+## bash login
 
-If you want to run a bash terminal instead of jupyter, just edit the bottom of the Dockerfile and build the image. Then type
-```
-$ bin/run-X.sh
-```
-Typing `jupyter.sh` on the bash terminal will start jupyter.
-
-If you're running Docker on Mac, you should install XQuartz and socat (`brew install socat`), and run the following command beforehand:
+If you use Docker on Mac and need X forwarding, you should install XQuartz and socat (`brew install socat`), and run the following command beforehand on XQuartz:
 ```
 $ socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\"
 ```
+
+You can login on bash terminal by:
+```
+$ docker exec -it <container name> /bin/bash
+```
+
+You can check `<container name>` by `$ docker ps`.
+
 
 ## Rendering on Jupyter notebook
 
