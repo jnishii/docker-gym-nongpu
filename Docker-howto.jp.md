@@ -9,7 +9,7 @@
 ```
 $ docker pull jnishii/docker-gym-ple-nongpu
 ```
-5. 以下をダウンロードして，run.shという名前にする
+5. 以下をダウンロードして，`run.sh`という名前にする
 ```
 https://github.com/jnishii/docker-gym-ple-nongpu/tree/master/bin/run.sh
 ```
@@ -20,6 +20,7 @@ $ mkdir jovyan # 作業用ディレクトリを作る
 ```
 
 ##　実行
+
 ```
 $ ./run.sh
 ```
