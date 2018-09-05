@@ -14,7 +14,7 @@ runJupyterBG(){
 	echo "$ docker stop ${DKNAME}  # stop docker" 
 	echo "$ docker start ${DKNAME} # start docker" 
 	docker run -d --name ${DKNAME} \
-		-v ${WD}:/${DKHOME}/ -p 8888:8888 ${IMAGE}
+		-v "${WD}":/${DKHOME}/ -p 8888:8888 ${IMAGE}
 }
 
 runJupyterFG(){
