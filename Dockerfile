@@ -97,7 +97,7 @@ USER ${USER}
 
 # Jupyter notebook with virtual frame buffer
 CMD cd ${HOME} \
-    && xvfb-run -s "-screen 0 1400x900x24" \
+    && xvfb-run -s "-screen 0 1024x768x24" \
     /usr/local/bin/jupyter notebook \
     --port=8888 --ip=0.0.0.0 --allow-root 
 
