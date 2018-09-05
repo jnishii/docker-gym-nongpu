@@ -2,13 +2,12 @@
 
 IP=`ipconfig getifaddr en0`
 IMAGE=jnishii/docker-gym-ple-nongpu
-USER=jovyan
+DKUSER=jovyan
+PWD=`pwd`
+WD=${PWD}/${USER}
 
 xhost + ${IP}
 
-[ ! -d ${USER} ] && mkdir ${USER}
-PWD=`pwd`
-WD=${PWD}/${USER}
 
 docker run -it --rm \
 		-e XMODIFIERS \

@@ -70,6 +70,7 @@ RUN  echo "from gym.envs.toy_text.mdp_gridworld import MDPGridworldEnv" >> ${GYM
 
 # Install jupyter.sh
 COPY jupyter.sh /usr/bin
+COPY aliases.sh /etc/profile.d
 
 # create user account
 ENV USER jovyan
