@@ -4,7 +4,7 @@ DKNAME=notebook
 DKUSER=jovyan
 DKHOME=/home/${DKUSER}
 PWD=`pwd`
-WD=${PWD}/${DKUSER}
+WD="${PWD}"
 IMAGE=jnishii/docker-gym-ple-nongpu
 
 runJupyterBG(){
@@ -19,7 +19,7 @@ runJupyterBG(){
 
 runJupyterFG(){
 	docker run -it --rm \
-		-v ${WD}:/${DKHOME}/ -p 8888:8888 ${IMAGE}
+		-v "${WD}":/${DKHOME}/ -p 8888:8888 ${IMAGE}
 }
 
 [ ! -d ${WD} ] && mkdir ${WD}
