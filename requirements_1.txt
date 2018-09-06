@@ -12,14 +12,6 @@ jupyter
 jupyterlab
 jupyter_nbextensions_configurator
 
-# Deep learning
-tensorflow 
-keras 
-h5py 
-keras-rl
-baselines
-# tensorforce
-
 # Other
 JSAnimation
 ipywidgets

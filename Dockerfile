@@ -51,16 +51,20 @@ RUN sudo update-alternatives --config python
 # upgrade pip
 RUN python3 -m pip install --upgrade pip
 
-# delete numpy that doesn't match to tensorflow 1.10.0
-RUN python3 -m pip uninstall numpy
 
-# install Python packages - Step 1
+# Step 1: basic python packages
 COPY requirements_1.txt /tmp/
 RUN python3 -m pip install -r /tmp/requirements_1.txt
 
-# install Python packages - Step 2 (OpenAI Gym/PyGame)
-COPY requirements_2.txt /tmp/
-RUN python3 -m pip install -r /tmp/requirements_2.txt
+# Step 2: install Deep Learning packages
+# at first delete numpy that doesn't match to tensorflow 1.10.0
+#RUN python3 -m pip uninstall numpy
+#COPY requirements_2.txt /tmp/
+#RUN python3 -m pip install -r /tmp/requirements_2.txt
+
+# Step 3: install OpenAI Gym
+COPY requirements_3.txt /tmp/
+RUN python3 -m pip install -r /tmp/requirements_3.txt
 
 # install gridworld
 ENV GYMDIR /usr/local/lib/python3.5/dist-packages/gym/envs/
