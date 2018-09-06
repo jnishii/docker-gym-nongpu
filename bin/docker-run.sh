@@ -32,10 +32,17 @@ Usage(){
 
 runX(){
 	IP=`ipconfig getifaddr en0`
-	xhost ${IP}
 
 	echo "running X server and bash ..."
 	echo "You can start jupyter by typing jupyter.sh"
+	echo ""
+	echo "If you want to connet X server on Docker, run X client on your system."
+	echo "  On Mac, follow the instruction below before running this script."
+	echo "  1. Start XQuartz and run socat on the terminal of XQuartz."
+	echo "  2. $ socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"${DISPLAY}\""
+	echo "  3. open another terminal of XQuartz and run this script."
+	
+	xhost ${IP}
 
 	docker run -it \
 		${DKOPT} \
