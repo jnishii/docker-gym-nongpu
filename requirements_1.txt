@@ -4,7 +4,7 @@ scipy
 scikit-image
 matplotlib 
 seaborn
-spyder
+#spyder
 pyvirtualdisplay
 
 # Jupyter
@@ -18,12 +18,7 @@ keras
 h5py 
 keras-rl
 baselines
-tensorforce
-
-# openAI Gym requirements
-PyOpenGL
-piglet
-pyglet
+# tensorforce
 
 # Other
 JSAnimation

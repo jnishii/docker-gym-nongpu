@@ -1,30 +1,20 @@
-# Docker - RL & OpenAI Gym & Jupyter
+# Docker image for RL on OpenAI Gym with Jupyter
  
-## Description
+## About
 
-A Docker image with the OpenAI Gym toolkit and PyGame Learning Environment (PLE).
-This docker image is developed based on [jaimeps/docker-rl-gym](https://github.com/jaimeps/docker-rl-gym).
+A Docker image running jupyter notebook/lab with OpenAI Gym toolkit. 
+This image was developed based on [jaimeps/docker-rl-gym](https://github.com/jaimeps/docker-rl-gym).
 
-## Changes from [jaimeps/docker-rl-gym](https://github.com/jaimeps/docker-rl-gym).
-
-- added [PyGame Learning Environment](http://pygame-learning-environment.readthedocs.io/)
-- added mdp_gridworld to gym from [CptS 580 Reinforcement Learning
-](https://github.com/IRLL/reinforcement_learning_class)
-- added jupyter lab
-- added scikit image
-- added script to start jupyter
-- added user `jovyan`
-- mount docker:/home/jovyan on ./jovyan 
-
-## Includes
+## Installed Libraries
 
 **1. Basics:** 
 - [NumPy](http://www.numpy.org/)
 - [Pandas](http://pandas.pydata.org/)
 - [Scipy](https://www.scipy.org/)
-- [Jupyter](http://jupyter.org/)
+- [scikit-image](https://scikit-image.org/)
 - [Matplotlib](http://matplotlib.org/)
 - [Seaborn](https://seaborn.pydata.org/)
+- [Jupyter notebook and lab](http://jupyter.org/)
 
 **2. Deep Learning:** 
 - [TensorFlow](https://www.tensorflow.org/)
@@ -33,43 +23,41 @@ This docker image is developed based on [jaimeps/docker-rl-gym](https://github.c
 **3. Reinforcement Learning:**
 - [Keras-RL](https://keras-rl.readthedocs.io/en/latest/)
 - [baselines](https://github.com/openai/baselines)
-- [TensorForce](https://github.com/reinforceio/tensorforce)
+<!-- - [TensorForce](https://github.com/reinforceio/tensorforce) -->
 
 **4. Environments:**
-- [AI Gym](https://github.com/openai/gym) with [mdp_gridworld](https://github.com/IRLL/reinforcement_learning_class)
-- [PyGame Learning Environment](http://pygame-learning-environment.readthedocs.io/)
+- [AI Gym](https://github.com/openai/gym)
+	- with [mdp_gridworld](https://github.com/IRLL/reinforcement_learning_class)
+<!-- - [PyGame Learning Environment](http://pygame-learning-environment.readthedocs.io/) -->
 
-**5. Others:** 
+** 5. Others:** 
 - [scikit-image](https://scikit-image.org/)
 - [ipywidgets](https://ipywidgets.readthedocs.io/en/stable/index.html)
 - [h5py](http://www.h5py.org/)
 
+## User and Home
 
-## Git Hub
+User `jovyan` was prepared in the docker image and `/home/jovyan` is mounted to your working directory where you type `docker run`. In other words, the files on the working directory can be easily accessed from the docker.
+
+
+## GitHub
 
 You can git clone from [jnishii/docker-gym-ple-nongpu](https://github.com/jnishii/docker-gym-ple-nongpu)
 
-## Docker Hub
+## DockerHub
 
-You can directly pull the [built image from Docker Hub](https://hub.docker.com/r/jnishii/docker-gym-ple-nongpu/) by 
+You can pull the [built image from Docker Hub](https://hub.docker.com/r/jnishii/docker-gym-ple-nongpu/) by 
 
 ```
 $ docker pull jnishii/docker-gym-ple-nongpu
 ```
 
-## start Docker
+## Start Docker
 
-Run the following command then Jupyter notebook will run.
-
-```
-$ mkdir jovyan
-$ bin/run.sh
-```
-
-`./jovyan` is mounted on `/home/jovyan` and the docker image.
+Just type the command `bin/docker-run.sh`, then Jupyter notebook will run.
 
 
-## bash login
+## Bash login
 
 If you use Docker on Mac and need X forwarding, you should install XQuartz and socat (`brew install socat`), and run the following command beforehand on XQuartz:
 
@@ -77,13 +65,8 @@ If you use Docker on Mac and need X forwarding, you should install XQuartz and s
 $ socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\"
 ```
 
-You can login on bash terminal by:
-
-```
-$ docker exec -it <container name> /bin/bash
-```
-
-You can check `<container name>` by `$ docker ps`.
+You can login on bash terminal of the Docker image by `bin/docker-run.sh -X`.
+Jupyter will start by typing `jupyter.sh` on the bash terminal.
 
 
 ## Rendering animations on Jupyter notebook
