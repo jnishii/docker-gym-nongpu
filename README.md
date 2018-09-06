@@ -1,9 +1,8 @@
-# Docker image for joining OpenAI Gym with Jupyter
+# Docker image for playing with OpenAI Gym on Jupyter
  
 ## About
 
-A Docker image running jupyter notebook/lab with OpenAI Gym toolkit. 
-This image was developed based on [jaimeps/docker-rl-gym](https://github.com/jaimeps/docker-rl-gym).
+A Docker image playing with OpenAI Gym on jupyter notebook/lab.
 
 ## Installed Libraries
 
@@ -15,20 +14,10 @@ This image was developed based on [jaimeps/docker-rl-gym](https://github.com/jai
 - [Matplotlib](http://matplotlib.org/)
 - [Seaborn](https://seaborn.pydata.org/)
 - [Jupyter notebook and lab](http://jupyter.org/)
-<!--
-**2. Deep Learning:** 
-- [TensorFlow](https://www.tensorflow.org/)
-- [Keras](http://keras.io/)
-
-**3. Reinforcement Learning:**
-- [Keras-RL](https://keras-rl.readthedocs.io/en/latest/)
-- [baselines](https://github.com/openai/baselines)
-- [TensorForce](https://github.com/reinforceio/tensorforce) -->
 
 **4. Environments:**
 - [openAI Gym](https://github.com/openai/gym)
 	- with [mdp_gridworld](https://github.com/IRLL/reinforcement_learning_class)
-<!-- - [PyGame Learning Environment](http://pygame-learning-environment.readthedocs.io/) -->
 
 ** 5. Others:** 
 - [scikit-image](https://scikit-image.org/)
