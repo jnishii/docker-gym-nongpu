@@ -87,7 +87,8 @@ WORKDIR ${HOME}
 COPY jupyter.sh /usr/bin
 COPY aliases.sh /etc/profile.d
 
-# Enable jupyter widgets
+# Enable jupyter extensions
+RUN jupyter nbextensions_configurator enable --system
 RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
 
 ENV DEBIAN_FRONTEND teletype

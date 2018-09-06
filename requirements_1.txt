@@ -1,13 +1,16 @@
 # Basic
 pandas 
-jupyter
-jupyterlab
 scipy
 scikit-image
 matplotlib 
 seaborn
 spyder
 pyvirtualdisplay
+
+# Jupyter
+jupyter
+jupyterlab
+jupyter_nbextensions_configurator
 
 # Deep learning
 tensorflow 
