@@ -5,7 +5,7 @@
 A Docker image with the OpenAI Gym toolkit and PyGame Learning Environment (PLE).
 This docker image is developed based on [jaimeps/docker-rl-gym](https://github.com/jaimeps/docker-rl-gym).
 
-## Chqanges from [jaimeps/docker-rl-gym](https://github.com/jaimeps/docker-rl-gym).
+## Changes from [jaimeps/docker-rl-gym](https://github.com/jaimeps/docker-rl-gym).
 
 - added [PyGame Learning Environment](http://pygame-learning-environment.readthedocs.io/)
 - added mdp_gridworld to gym from [CptS 580 Reinforcement Learning
