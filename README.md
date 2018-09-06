@@ -42,14 +42,14 @@ User `jovyan` was prepared in the docker image and `/home/jovyan` is mounted to 
 
 ## GitHub
 
-You can git clone from [jnishii/docker-gym-ple-nongpu](https://github.com/jnishii/docker-gym-ple-nongpu)
+You can git clone from [jnishii/docker-gym-nongpu](https://github.com/jnishii/docker-gym-nongpu)
 
 ## DockerHub
 
-You can pull the [built image from Docker Hub](https://hub.docker.com/r/jnishii/docker-gym-ple-nongpu/) by 
+You can pull the [built image from Docker Hub](https://hub.docker.com/r/jnishii/docker-gym-nongpu/) by 
 
 ```
-$ docker pull jnishii/docker-gym-ple-nongpu
+$ docker pull jnishii/docker-gym-nongpu
 ```
 
 ## Start Docker

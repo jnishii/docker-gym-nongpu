@@ -1,4 +1,4 @@
-IMAGE=jnishii/docker-gym-ple-nongpu
+IMAGE=jnishii/docker-gym-nongpu
 
 build:
 	docker build --force-rm=true -t ${IMAGE} .

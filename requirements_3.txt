@@ -1,4 +1,5 @@
 # openAI Gym requirements
+imageio
 PyOpenGL
 piglet
 pyglet

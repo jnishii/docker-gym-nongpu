@@ -7,11 +7,11 @@
 3. ターミナルを開く
 4. 演習用Dockerイメージをダウンロードする
 ```
-$ docker pull jnishii/docker-gym-ple-nongpu
+$ docker pull jnishii/docker-gym-nongpu
 ```
 5. 以下をダウンロードして，`run.sh`という名前にする
 ```
-https://github.com/jnishii/docker-gym-ple-nongpu/tree/master/bin/dicker-run.sh
+https://github.com/jnishii/docker-gym-nongpu/tree/master/bin/dicker-run.sh
 ```
 6. 以下を実行していく
 ```
