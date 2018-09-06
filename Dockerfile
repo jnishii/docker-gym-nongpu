@@ -68,9 +68,9 @@ RUN cat /tmp/env_register.txt >> ${GYMDIR}/__init__.py
 COPY gridworld-gym/envs/mdp_gridworld.py ${GYMDIR}/toy_text/
 RUN  echo "from gym.envs.toy_text.mdp_gridworld import MDPGridworldEnv" >> ${GYMDIR}/toy_text/__init__.py
 
-# Install jupyter.sh
-COPY jupyter.sh /usr/bin
-COPY aliases.sh /etc/profile.d
+# Install graphic driver
+RUN apt-get install -y libgl1-mesa-dri libgl1-mesa-glx --no-install-recommends
+RUN dbus-uuidgen > /etc/machine-id
 
 # create user account
 ENV USER jovyan
@@ -82,6 +82,9 @@ RUN export uid=1000 gid=1000 &&\
     install -d -m 0755 -o ${uid} -g ${gid} ${HOME}
 WORKDIR ${HOME}
 
+# Install some scripts
+COPY jupyter.sh /usr/bin
+COPY aliases.sh /etc/profile.d
 
 # Enable jupyter widgets
 RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension

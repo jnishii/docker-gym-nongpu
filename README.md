@@ -24,6 +24,7 @@ This docker image is developed based on [jaimeps/docker-rl-gym](https://github.c
 - [Scipy](https://www.scipy.org/)
 - [Jupyter](http://jupyter.org/)
 - [Matplotlib](http://matplotlib.org/)
+- [Seaborn](https://seaborn.pydata.org/)
 
 **2. Deep Learning:** 
 - [TensorFlow](https://www.tensorflow.org/)
