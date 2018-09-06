@@ -5,6 +5,7 @@ jupyterlab
 scipy
 scikit-image
 matplotlib 
+seaborn
 spyder
 pyvirtualdisplay
 
