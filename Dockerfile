@@ -27,6 +27,7 @@ RUN apt-get update \
         xorg-dev \
         libboost-all-dev \
         libsdl2-dev \
+        dbus \
         swig \
         python3  \
         python3-dev  \
