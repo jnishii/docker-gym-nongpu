@@ -43,19 +43,19 @@ $ docker pull jnishii/docker-gym-nongpu
 
 ## Start Docker
 
-Just type the command `bin/docker-run.sh`, then Jupyter notebook will run.
+Just type `bin/docker-run.sh`, then Jupyter notebook will run.
 
 
 ## Bash login
 
-If you use Docker on Mac and need X forwarding, you should install XQuartz and socat (`brew install socat`), and run the following command beforehand on XQuartz:
+Just type `bin/docker-run.sh -X`.
+Jupyter will start by typing `jupyter.sh` on the bash terminal.
+
+If you use need X forwarding on Mac OS, install XQuartz and socat (`brew install socat`), and run the command below on XQuartz before running the docker image:
 
 ```
 $ socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\"
 ```
-
-You can login on bash terminal of the Docker image by `bin/docker-run.sh -X`.
-Jupyter will start by typing `jupyter.sh` on the bash terminal.
 
 
 ## Rendering animations on Jupyter notebook
