@@ -8,10 +8,10 @@ WD="${PWD}"
 IMAGE=jnishii/docker-gym-nongpu
 
 DKOPT="--rm \
-		-h ${DKNAME} \
-		--name ${DKNAME} \
-		-v "${WD}":/${DKHOME} 
-		-p 8888:8888"
+	-h ${DKNAME} \
+	--name ${DKNAME} \
+	-v "${WD}":/${DKHOME} \
+	-p 8888:8888"
 
 # docker run: 
 # --hostname , -h : Container host name

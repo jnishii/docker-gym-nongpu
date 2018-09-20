@@ -6,6 +6,12 @@ build:
 run:
 	bin/run.sh
 
+save:
+	docker save jnishii/docker-gym-nongpu -o gymbox.tar
+
+load:
+	docker load -i gymbox.tar
+
 ps:
 	docker ps -a
 

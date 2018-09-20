@@ -1,12 +1,12 @@
 # Docker image for playing with OpenAI Gym on Jupyter
- 
+
 ## About
 
 A Docker image playing with OpenAI Gym on jupyter notebook/lab.
 
 ## Installed Libraries
 
-**1. Basics:** 
+**1. Basics:**
 - [NumPy](http://www.numpy.org/)
 - [Pandas](http://pandas.pydata.org/)
 - [Scipy](https://www.scipy.org/)
@@ -18,11 +18,12 @@ A Docker image playing with OpenAI Gym on jupyter notebook/lab.
 **4. Environments:**
 - [openAI Gym](https://github.com/openai/gym)
 	- with [mdp_gridworld](https://github.com/IRLL/reinforcement_learning_class)
+	- without Robotics and MuJoCo
 
-** 5. Others:** 
+** 5. Others:**
 - [scikit-image](https://scikit-image.org/)
 - [ipywidgets](https://ipywidgets.readthedocs.io/en/stable/index.html)
-- [h5py](http://www.h5py.org/)
+<!-- - [h5py](http://www.h5py.org/)-->
 
 ## User and Home
 
@@ -35,7 +36,7 @@ You can git clone from [jnishii/docker-gym-nongpu](https://github.com/jnishii/do
 
 ## DockerHub
 
-You can pull the [built image from Docker Hub](https://hub.docker.com/r/jnishii/docker-gym-nongpu/) by 
+You can pull the [built image from Docker Hub](https://hub.docker.com/r/jnishii/docker-gym-nongpu/) by
 
 ```
 $ docker pull jnishii/docker-gym-nongpu
@@ -43,19 +44,19 @@ $ docker pull jnishii/docker-gym-nongpu
 
 ## Start Docker
 
-Just type the command `bin/docker-run.sh`, then Jupyter notebook will run.
+Just type `bin/docker-run.sh`, then Jupyter notebook will run.
 
 
 ## Bash login
 
-If you use Docker on Mac and need X forwarding, you should install XQuartz and socat (`brew install socat`), and run the following command beforehand on XQuartz:
+Just type `bin/docker-run.sh -X`.
+Jupyter will start by typing `jupyter.sh` on the bash terminal.
+
+If you use need X forwarding on Mac OS, install XQuartz and socat (`brew install socat`), and run the command below on XQuartz before running the docker image:
 
 ```
 $ socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\"
 ```
-
-You can login on bash terminal of the Docker image by `bin/docker-run.sh -X`.
-Jupyter will start by typing `jupyter.sh` on the bash terminal.
 
 
 ## Rendering animations on Jupyter notebook
@@ -77,4 +78,3 @@ for _ in range(50):
     action=env.action_space.sample()
     env.step(action)
 ```
-
