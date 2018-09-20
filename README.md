@@ -23,7 +23,7 @@ A Docker image playing with OpenAI Gym on jupyter notebook/lab.
 ** 5. Others:**
 - [scikit-image](https://scikit-image.org/)
 - [ipywidgets](https://ipywidgets.readthedocs.io/en/stable/index.html)
-- [h5py](http://www.h5py.org/)
+<!-- - [h5py](http://www.h5py.org/)-->
 
 ## User and Home
 

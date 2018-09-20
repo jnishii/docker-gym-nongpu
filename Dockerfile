@@ -53,18 +53,18 @@ RUN python3 -m pip install --upgrade pip
 
 
 # Step 1: basic python packages
-COPY requirements_1.txt /tmp/
-RUN python3 -m pip install -r /tmp/requirements_1.txt
+COPY requirements_py.txt /tmp/
+RUN python3 -m pip install -r /tmp/requirements_py.txt
 
 # Step 2: install Deep Learning packages
 # at first delete numpy that doesn't match to tensorflow 1.10.0
 #RUN python3 -m pip uninstall numpy
-#COPY requirements_2.txt /tmp/
-#RUN python3 -m pip install -r /tmp/requirements_2.txt
+#COPY requirements_dl.txt /tmp/
+#RUN python3 -m pip install -r /tmp/requirements_dl.txt
 
 # Step 3: install OpenAI Gym
-COPY requirements_3.txt /tmp/
-RUN python3 -m pip install -r /tmp/requirements_3.txt
+COPY requirements_gym.txt /tmp/
+RUN python3 -m pip install -r /tmp/requirements_gym.txt
 
 # install gridworld
 ENV GYMDIR /usr/local/lib/python3.5/dist-packages/gym/envs/
@@ -91,9 +91,14 @@ WORKDIR ${HOME}
 COPY jupyter.sh /usr/bin
 COPY aliases.sh /etc/profile.d
 
-# Enable jupyter extensions
-RUN jupyter nbextensions_configurator enable --system
-RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
+# Customize jupyter extensions
+RUN python3 -m pip install jupyter-emacskeys
+RUN python3 -m pip install jupyter_contrib_nbextensions
+RUN jupyter contrib nbextension install --system
+
+RUN python3 -m pip install RISE
+RUN jupyter-nbextension install rise --py --sys-prefix
+
 
 ENV DEBIAN_FRONTEND teletype
 
