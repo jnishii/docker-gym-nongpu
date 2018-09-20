@@ -1,12 +1,12 @@
 # Docker image for playing with OpenAI Gym on Jupyter
- 
+
 ## About
 
 A Docker image playing with OpenAI Gym on jupyter notebook/lab.
 
 ## Installed Libraries
 
-**1. Basics:** 
+**1. Basics:**
 - [NumPy](http://www.numpy.org/)
 - [Pandas](http://pandas.pydata.org/)
 - [Scipy](https://www.scipy.org/)
@@ -18,8 +18,9 @@ A Docker image playing with OpenAI Gym on jupyter notebook/lab.
 **4. Environments:**
 - [openAI Gym](https://github.com/openai/gym)
 	- with [mdp_gridworld](https://github.com/IRLL/reinforcement_learning_class)
+	- without Robotics and MuJoCo
 
-** 5. Others:** 
+** 5. Others:**
 - [scikit-image](https://scikit-image.org/)
 - [ipywidgets](https://ipywidgets.readthedocs.io/en/stable/index.html)
 - [h5py](http://www.h5py.org/)
@@ -35,7 +36,7 @@ You can git clone from [jnishii/docker-gym-nongpu](https://github.com/jnishii/do
 
 ## DockerHub
 
-You can pull the [built image from Docker Hub](https://hub.docker.com/r/jnishii/docker-gym-nongpu/) by 
+You can pull the [built image from Docker Hub](https://hub.docker.com/r/jnishii/docker-gym-nongpu/) by
 
 ```
 $ docker pull jnishii/docker-gym-nongpu
@@ -77,4 +78,3 @@ for _ in range(50):
     action=env.action_space.sample()
     env.step(action)
 ```
-

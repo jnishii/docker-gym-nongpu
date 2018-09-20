@@ -5,7 +5,9 @@ piglet
 pyglet
 
 # openAI Gym
-gym[all]
+gym
+gym[atari]
+gym[box2d]
 
 # PyGame
 #pygame
