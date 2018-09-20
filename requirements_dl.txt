@@ -1,0 +1,7 @@
+# Deep learning
+tensorflow 
+keras 
+h5py 
+keras-rl
+baselines
+# tensorforce

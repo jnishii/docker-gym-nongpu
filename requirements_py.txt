@@ -1,0 +1,17 @@
+# Basic
+pandas 
+scipy
+scikit-image
+matplotlib 
+seaborn
+#spyder
+pyvirtualdisplay
+
+# Jupyter
+jupyter
+jupyterlab
+jupyter_nbextensions_configurator
+
+# Other
+JSAnimation
+ipywidgets
