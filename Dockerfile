@@ -100,7 +100,7 @@ RUN jupyter-nbextension install rise --py --sys-prefix
 RUN jupyter nbextension enable highlighter/highlighter --system
 RUN jupyter nbextension enable toggle_all_line_numbers/main --system
 RUN jupyter nbextension enable hide_header/main --system
-RUN jupyter nbextension enable hide_input/main --system
+#RUN jupyter nbextension enable hide_input/main --system
 RUN jupyter nbextension enable toc2/main --system
 
 ENV DEBIAN_FRONTEND teletype
