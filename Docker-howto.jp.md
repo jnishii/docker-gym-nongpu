@@ -18,7 +18,7 @@ https://github.com/jnishii/docker-gym-nongpu/tree/master/bin/dicker-run.sh
 $ chmod 755 docker-run.sh　# run.shに実行権限を付与
 ```
 
-##　実行
+## 実行
 
 ```
 $ ./docker-run.sh
