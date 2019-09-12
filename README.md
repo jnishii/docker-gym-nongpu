@@ -20,7 +20,7 @@ A Docker image playing with OpenAI Gym on jupyter notebook/lab.
 	- with [mdp_gridworld](https://github.com/IRLL/reinforcement_learning_class)
 	- without Robotics and MuJoCo
 
-** 5. Others:**
+**5. Others:**
 - [scikit-image](https://scikit-image.org/)
 - [ipywidgets](https://ipywidgets.readthedocs.io/en/stable/index.html)
 <!-- - [h5py](http://www.h5py.org/)-->
