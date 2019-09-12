@@ -5,7 +5,7 @@ release: build
 	echo "$VERSION"
 	git add -A
 	git commit -m "version ${VERSION}"
-	git tag -a "$version" -m "version ${VERSION}"
+	git tag -a "${VERSION}" -m "version ${VERSION}"
 	git push
 	git push --tags
 	docker tag ${IMAGE}:latest ${IMAGE}:${VERSION}
