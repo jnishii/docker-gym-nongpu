@@ -1,5 +1,5 @@
 IMAGE=jnishii/docker-gym-nongpu
-VERSION=`cat VERSION`
+VERSION=$(shell cat VERSION)
 
 release: build
 	echo "$VERSION"
