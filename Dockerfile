@@ -2,9 +2,9 @@
 FROM ubuntu:16.04
 # FROM ubuntu:16.10 # build fails for 16.10
 
-
 WORKDIR /home
 RUN mkdir src
+ADD VERSION .
 
 ENV DEBIAN_FRONTEND noninteractive
 

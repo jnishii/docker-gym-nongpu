@@ -1,7 +1,19 @@
 IMAGE=jnishii/docker-gym-nongpu
+VERSION=`cat VERSION`
+
+release: build
+	echo "$VERSION"
+	git add -A
+	git commit -m "version ${VERSION}"
+	git tag -a "$version" -m "version ${VERSION}"
+	git push
+	git push --tags
+	docker tag ${IMAGE}:latest ${IMAGE}:${VERSION}
+	docker push ${IMAGE}:latest
+	docker push ${IMAGE}:$version
 
 build:
-	docker build --force-rm=true -t ${IMAGE} .
+	docker build --force-rm=true -t ${IMAGE}:latest .
 
 run:
 	bin/run.sh

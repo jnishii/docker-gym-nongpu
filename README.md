@@ -78,3 +78,8 @@ for _ in range(50):
     action=env.action_space.sample()
     env.step(action)
 ```
+
+## Version
+1.0.0
+- ubuntu 16.04
+- python 3.5
