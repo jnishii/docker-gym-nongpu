@@ -11,17 +11,22 @@ WEST = 2
 EAST = 3
 
 MAP = [
-    "+----+",
-    "|   G|",
-    "| | F|",
-    "|S   |",
-    "+----+"
+    "+--------+",
+    "|   |   G|",
+    "| |   || |",
+    "| |||||F |",
+    "| |FFFFF |",
+    "| |F     |",
+    "| |F F  F|",
+    "| |F    F|",
+    "|S   FFFF|",    
+    "+--------+"
 ]
 
 class MDPGridworldEnv(discrete.DiscreteEnv):
     """
     IMPORTANT: This code is based from openAI gym's FrozenLake code.
-    This is a 3x4 grid world based from problem for an AI-Class. (https://goo.gl/GqkyzT)
+    This is a 4x4 grid world based from problem for an AI-Class. (https://goo.gl/GqkyzT)
     The surface is described using a grid like the following
 
     S : starting point, non-terminal state (reward: -3)
@@ -35,12 +40,11 @@ class MDPGridworldEnv(discrete.DiscreteEnv):
 
     metadata = {'render.modes': ['human', 'ansi']}
 
-    def __init__(self, shape=[3,4]):
-        self.shape = shape
+    def __init__(self, map=MAP):
         self.desc = np.asarray(MAP,dtype='c')
 
-        self.nrow = nR = 3
-        self.ncol = nC = 4
+        self.nrow = nR = self.desc.shape[0]-2 # 2: borders
+        self.ncol = nC = self.desc.shape[1]-2
         nA = 4
         nS = nR * nC
 
@@ -65,7 +69,7 @@ class MDPGridworldEnv(discrete.DiscreteEnv):
                 row, col = t_row, t_col
             return (row, col)
 
-        isd[to_s(2, 0)] = 1
+        isd[to_s(7, 0)] = 1 # Start position (row,column)
         for row in range(self.nrow):
             for col in range(self.ncol):
                 s = to_s(row, col)

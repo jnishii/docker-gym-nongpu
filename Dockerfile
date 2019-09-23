@@ -94,16 +94,16 @@ COPY aliases.sh /etc/profile.d
 # Customize jupyter extensions
 RUN python3 -m pip install jupyter-emacskeys
 RUN python3 -m pip install jupyter_contrib_nbextensions
-RUN jupyter contrib nbextension install --system
+RUN jupyter contrib nbextension install --sys-prefix
 
 RUN python3 -m pip install RISE
 RUN jupyter-nbextension install rise --py --sys-prefix
 
-RUN jupyter nbextension enable highlighter/highlighter --system
-RUN jupyter nbextension enable toggle_all_line_numbers/main --system
-RUN jupyter nbextension enable hide_header/main --system
-#RUN jupyter nbextension enable hide_input/main --system
-RUN jupyter nbextension enable toc2/main --system
+RUN jupyter nbextension enable highlighter/highlighter --sys-prefix
+RUN jupyter nbextension enable toggle_all_line_numbers/main --sys-prefix
+RUN jupyter nbextension enable hide_header/main --sys-prefix
+#RUN jupyter nbextension enable hide_input/main --sys-prefix
+RUN jupyter nbextension enable toc2/main --sys-prefix
 
 ENV DEBIAN_FRONTEND teletype
 

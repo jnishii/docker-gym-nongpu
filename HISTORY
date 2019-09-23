@@ -1,0 +1,6 @@
+1.0.1 (2019/9/23)
+- install nbextensions with --sys-prefix instead of --system
+- update MDPgridworld from 3x4 to 4x4 (now customizable by __main__(map))
+- fix gridworld-gym/env_register.txt to use max_episode_steps
+
+1.0.0

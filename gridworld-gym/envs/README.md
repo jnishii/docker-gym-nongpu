@@ -1,6 +1,6 @@
 `MDPGridworld-v0`:
 --------------------
-This version of the 3×4 grid world is deterministic. The set-up for this problem is based from this [blog post](https://goo.gl/GqkyzT).
+This version of the 4×4 grid world is deterministic. The set-up for this problem is based from this [blog post](https://goo.gl/GqkyzT).
 
 * **States** or **Observation**: States are represented with scalar values in the range 0 to 11. Below is a diagram of the corresponding states.
 
@@ -12,14 +12,18 @@ This version of the 3×4 grid world is deterministic. The set-up for this proble
     +---+---+---+---+
     | 8 | 9 | 10| 11|
     +---+---+---+---+
+    | 12| 13| 14| 15|
+    +---+---+---+---+
 
     +---+---+---+---+
     |   |   |   | G |   S - Starting state
     +---+---+---+---+   G - Goal
     |   | # |   | F |   F - Fire (very bad state)
     +---+---+---+---+   # - Wall
-    | S |   |   |   |
+    |   |   |   |   |
     +---+---+---+---+
+    | S |   |   |   |
+    +---+---+---+---+    
     ```
     
     ```python
