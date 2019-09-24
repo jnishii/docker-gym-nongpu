@@ -10,28 +10,38 @@ SOUTH = 1
 WEST = 2
 EAST = 3
 
-MAP = [
+MAPS = {
+    "3x4": [
+    "+----+",
+    "|   G|",
+    "| # F|",
+    "|S   |",    
+    "+----+"
+    ],
+
+    "8x8": [
     "+--------+",
     "|   |   G|",
-    "| |   || |",
-    "| |||||F |",
-    "| |FFFFF |",
-    "| |F     |",
-    "| |F F  F|",
-    "| |F    F|",
-    "|S   FFFF|",    
+    "| |    | |",
+    "| |    | |",
+    "| |||||| |",
+    "| |    F |",
+    "| |    F |",
+    "| |    F |",
+    "|S       |",    
     "+--------+"
-]
+    ],
+}
 
 class MDPGridworldEnv(discrete.DiscreteEnv):
     """
     IMPORTANT: This code is based from openAI gym's FrozenLake code.
-    This is a 4x4 grid world based from problem for an AI-Class. (https://goo.gl/GqkyzT)
+    This is a 3x4 grid world based from problem for an AI-Class. (https://goo.gl/GqkyzT)
     The surface is described using a grid like the following
 
     S : starting point, non-terminal state (reward: -3)
       : non-terminal states (reward: -3)
-    F : fire, burn to death (reward: -100)
+    F : fire, burn to die (reward: -100)
     G : goal (reward: +100)
 
     The episode ends when you reach the goal or burn in hell.
@@ -40,8 +50,11 @@ class MDPGridworldEnv(discrete.DiscreteEnv):
 
     metadata = {'render.modes': ['human', 'ansi']}
 
-    def __init__(self, map=MAP):
-        self.desc = np.asarray(MAP,dtype='c')
+    def __init__(self, map=None, map_name="3x4", start=(2,0), r_step=-3, r_fire=10, r_wall=0):
+        if map is None:
+            self.desc = np.asarray(MAPS[map_name],dtype='c')
+        else:
+            self.desc = np.asarray(map,dtype='c')
 
         self.nrow = nR = self.desc.shape[0]-2 # 2: borders
         self.ncol = nC = self.desc.shape[1]-2
@@ -69,7 +82,7 @@ class MDPGridworldEnv(discrete.DiscreteEnv):
                 row, col = t_row, t_col
             return (row, col)
 
-        isd[to_s(7, 0)] = 1 # Start position (row,column)
+        isd[to_s(start[0], start[1])] = 1 # Start position (row,column)
         for row in range(self.nrow):
             for col in range(self.ncol):
                 s = to_s(row, col)
@@ -81,7 +94,7 @@ class MDPGridworldEnv(discrete.DiscreteEnv):
                     elif letter == b'|':
                         li.append((0.0, s, 0, False))
                     else:
-                        rew = -3
+                        rew = r_step
                         newrow, newcol = inc(row, col, a)
                         newstate = to_s(newrow, newcol)
                         newletter = self.desc[newrow+1, newcol+1]
@@ -89,7 +102,9 @@ class MDPGridworldEnv(discrete.DiscreteEnv):
                         if bytes(newletter) in b'G':
                             rew = 100
                         elif bytes(newletter) in b'F':
-                            rew = -100
+                            rew = r_fire
+                        elif bytes(newletter) in b'|':
+                            rew=r_wall
                         li.append((1.0, newstate, rew, done))
 
         isd /= isd.sum()

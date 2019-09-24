@@ -1,6 +1,6 @@
 `MDPGridworld-v0`:
 --------------------
-This version of the 4×4 grid world is deterministic. The set-up for this problem is based from this [blog post](https://goo.gl/GqkyzT).
+This version of the 3×4 grid world is deterministic. The set-up for this problem is based from this [blog post](https://goo.gl/GqkyzT).
 
 * **States** or **Observation**: States are represented with scalar values in the range 0 to 11. Below is a diagram of the corresponding states.
 
@@ -12,18 +12,14 @@ This version of the 4×4 grid world is deterministic. The set-up for this proble
     +---+---+---+---+
     | 8 | 9 | 10| 11|
     +---+---+---+---+
-    | 12| 13| 14| 15|
-    +---+---+---+---+
 
     +---+---+---+---+
     |   |   |   | G |   S - Starting state
     +---+---+---+---+   G - Goal
     |   | # |   | F |   F - Fire (very bad state)
     +---+---+---+---+   # - Wall
-    |   |   |   |   |
-    +---+---+---+---+
     | S |   |   |   |
-    +---+---+---+---+    
+    +---+---+---+---+
     ```
     
     ```python
@@ -34,6 +30,30 @@ This version of the 4×4 grid world is deterministic. The set-up for this proble
     print env.observation_space.n # give access to scalar value representing range for the states
     # 12
     ```
+
+** 8x8 versions are also available
+```
+    "+--------+",
+    "|   |   G|",
+    "| |    | |",
+    "| |    | |",
+    "| |||||| |",
+    "| |    F |",
+    "| |    F |",
+    "| |    F |",
+    "|S       |",    
+    "+--------+"
+```
+
+In 'MDPGridworld-v1', rewards are the same as in v0.
+```python
+env = gym.make('MDPGridworld-v1')
+```
+
+In 'MDPGridworld-v2', `F` gives positive values.
+```python
+env = gym.make('MDPGridworld-v2')
+```
 
 * **Actions**: Below are the scalar values for all possible actions in each non-terminal state. Agent keeps the same state when taking an action towards a wall.
 
