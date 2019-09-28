@@ -31,6 +31,19 @@ MAPS = {
     "|S       |",    
     "+--------+"
     ],
+
+    "8x8c": [
+    "+--------+",
+    "|   |   G|",
+    "| |    | |",
+    "| |    | |",
+    "| |||||| |",
+    "| |C   F |",
+    "| |    F |",
+    "| |    F |",
+    "|S       |",    
+    "+--------+"
+    ],
 }
 
 class MDPGridworldEnv(discrete.DiscreteEnv):
@@ -50,7 +63,12 @@ class MDPGridworldEnv(discrete.DiscreteEnv):
 
     metadata = {'render.modes': ['human', 'ansi']}
 
-    def __init__(self, map=None, map_name="3x4", start=(2,0), r_step=-3, r_fire=10, r_wall=0):
+    def __init__(self, map=None, map_name="3x4", start=(2,0), r_step=-3, r_fire=10, r_cake=5, r_wall=0):
+        self.r_step=r_step
+        self.r_fire=r_fire
+        self.r_cake=r_cake
+        self.r_wall=r_wall
+        self.r_goal=100
         if map is None:
             self.desc = np.asarray(MAPS[map_name],dtype='c')
         else:
@@ -89,27 +107,29 @@ class MDPGridworldEnv(discrete.DiscreteEnv):
                 for a in range(4):
                     li = P[s][a]
                     letter = self.desc[row+1, col+1]
-                    if letter in b'GF':
+                    if bytes(letter) in b'GF':
                         li.append((1.0, s, 0, True))
-                    elif letter == b'|':
+                    elif bytes(letter) in b'|':
                         li.append((0.0, s, 0, False))
                     else:
-                        rew = r_step
+                        rew = self.r_step
                         newrow, newcol = inc(row, col, a)
                         newstate = to_s(newrow, newcol)
                         newletter = self.desc[newrow+1, newcol+1]
                         done = bytes(newletter) in b'GF'
                         if bytes(newletter) in b'G':
-                            rew = 100
+                            rew = self.r_goal
                         elif bytes(newletter) in b'F':
-                            rew = r_fire
-                        elif bytes(newletter) in b'|':
-                            rew=r_wall
+                            rew = self.r_fire
+                        elif bytes(newletter) in b'C':
+                            rew = self.r_cake
+                        elif newstate == s:
+                            rew = self.r_wall
                         li.append((1.0, newstate, rew, done))
 
         isd /= isd.sum()
         super(MDPGridworldEnv, self).__init__(nS, nA, P, isd)
-
+   
     def render(self, mode='human', close=False):
         if close:
             return
@@ -127,3 +147,33 @@ class MDPGridworldEnv(discrete.DiscreteEnv):
             outfile.write("\n")
 
         return outfile
+
+    def show_info(self):
+        print("Map and Cell IDs")
+        for row in range(self.nrow):
+            print("+---"*8+"+", end="    ")
+            print("+---"*8+"+")
+            print("|", end="")
+
+            for col in range(self.ncol):
+                 letter = self.desc[row+1, col+1]
+                 if bytes(letter) in b'GFS ': print(" "+letter.decode()+" |", end="")
+                 elif bytes(letter) in b'|': print(" # |", end="")
+
+            print("    |",end="")
+            for col in range(self.ncol):
+                print(" %2d|" % (row*self.ncol+col), end="")
+
+            print("")
+
+        print("+---"*8+"+",end="")
+        print("    ",end="")
+        print("+---"*8+"+")
+
+        print("Rewards")
+        print("S: start")
+        print("G: goal (%d points)" % (self.r_goal))
+        print("F: fire (%d points)" % self.r_fire)
+        print("#: wall (%d points)" % self.r_wall)
+        print("C: cake (%d points)" % self.r_cake)
+        print("Time cost: %d points/step" % self.r_step)
