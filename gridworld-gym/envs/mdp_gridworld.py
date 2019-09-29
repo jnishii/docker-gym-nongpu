@@ -157,8 +157,9 @@ class MDPGridworldEnv(discrete.DiscreteEnv):
 
             for col in range(self.ncol):
                  letter = self.desc[row+1, col+1]
-                 if bytes(letter) in b'GFS ': print(" "+letter.decode()+" |", end="")
-                 elif bytes(letter) in b'|': print(" # |", end="")
+                 if bytes(letter) in b'|': print(" # |", end="")
+                 else: 
+                     print(" "+letter.decode()+" |", end="")
 
             print("    |",end="")
             for col in range(self.ncol):
