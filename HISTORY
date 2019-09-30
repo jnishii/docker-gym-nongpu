@@ -1,5 +1,9 @@
+1.1.1(2019/9/30)
+- install pyglet==1.3.2 instead of newest version to avoid the error "Getting “ AttributeError: 'ImageData' object has no attribute 'data'”
+
+
 1.1(2019/9/30)
-- many big fixes of MDPgridworld
+- many bug fixes of MDPgridworld
 - install nbextensions WITHOUT --sys-prefix
 
 

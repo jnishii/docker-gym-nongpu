@@ -2,7 +2,7 @@
 imageio
 PyOpenGL
 piglet
-pyglet
+pyglet==1.3.2
 
 # openAI Gym
 gym
