@@ -73,6 +73,7 @@ RUN cat /tmp/env_register.txt >> ${GYMDIR}/__init__.py
 COPY gridworld-gym/envs/mdp_gridworld.py ${GYMDIR}/toy_text/
 RUN  echo "from gym.envs.toy_text.mdp_gridworld import MDPGridworldEnv" >> ${GYMDIR}/toy_text/__init__.py
 
+
 # Install graphic driver
 RUN apt-get install -y libgl1-mesa-dri libgl1-mesa-glx --no-install-recommends
 RUN dbus-uuidgen > /etc/machine-id
@@ -90,6 +91,17 @@ WORKDIR ${HOME}
 # Install some scripts
 COPY jupyter.sh /usr/bin
 COPY aliases.sh /etc/profile.d
+
+# install nbgrader
+RUN sudo python3 -m pip install --upgrade pip
+RUN sudo python3 -m pip install nbgrader
+RUN sudo python3 -m pip install nose
+RUN sudo jupyter nbextension install --sys-prefix --py nbgrader --overwrite
+# RUN sudo jupyter nbextension enable --sys-prefix --py nbgrader
+# RUN sudo jupyter serverextension enable --sys-prefix --py nbgrader
+
+# https://github.com/jhamrick/plotchecker
+RUN sudo python3 -m pip install plotchecker
 
 # Customize jupyter extensions
 RUN python3 -m pip install jupyter-emacskeys

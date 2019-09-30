@@ -1,3 +1,8 @@
+1.1(2019/9/30)
+- many big fixes of MDPgridworld
+- install nbextensions WITHOUT --sys-prefix
+
+
 1.0.1 (2019/9/23)
 - install nbextensions with --sys-prefix instead of --system
 - enable customized maps for MDPgridworld and supported 8x8 default map(v1 and v2)
