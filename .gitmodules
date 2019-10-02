@@ -1,3 +1,3 @@
 [submodule "gridworld-gym"]
 	path = gridworld-gym
-	url = git@github.com:jnishii/gridworld-gym.git
+	url = https://github.com/jnishii/gridworld-gym.git

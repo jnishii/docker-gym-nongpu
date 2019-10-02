@@ -42,12 +42,12 @@ You can pull the [built image from Docker Hub](https://hub.docker.com/r/jnishii/
 $ docker pull jnishii/docker-gym-nongpu
 ```
 
-## Start Docker
+## Start Docker and Jupyter notebook
 
 Just type `bin/docker-run.sh`, then Jupyter notebook will run.
 
 
-## Bash login
+## Start Docker with bash login
 
 Just type `bin/docker-run.sh -X`.
 Jupyter will start by typing `jupyter.sh` on the bash terminal.
@@ -58,6 +58,11 @@ If you use need X forwarding on Mac OS, install XQuartz and socat (`brew install
 $ socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\"
 ```
 
+## bash login to running docker
+
+```
+$ docker -it jnishii/docker-gym-nongpu /bin/bash
+```
 
 ## Rendering animations on Jupyter notebook
 
@@ -78,8 +83,3 @@ for _ in range(50):
     action=env.action_space.sample()
     env.step(action)
 ```
-
-## Version
-1.0.0
-- ubuntu 16.04
-- python 3.5
