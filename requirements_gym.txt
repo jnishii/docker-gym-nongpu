@@ -10,4 +10,4 @@ gym[atari]
 gym[box2d]
 
 # PyGame
-#pygame
+pygame
