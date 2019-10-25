@@ -107,6 +107,10 @@ RUN sudo python3 -m pip install plotchecker
 RUN python3 -m pip install jupyter-emacskeys
 RUN python3 -m pip install jupyter_contrib_nbextensions
 RUN jupyter contrib nbextension install --sys-prefix
+RUN python3 -m pip install black
+RUN jupyter nbextension install https://github.com/drillan/jupyter-black/archive/master.zip --sys-prefix
+RUN jupyter nbextension enable jupyter-black-master/jupyter-black
+
 
 RUN python3 -m pip install RISE
 RUN jupyter-nbextension install rise --py --sys-prefix
