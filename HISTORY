@@ -1,5 +1,5 @@
 1.1.5(2019/10/25)
-- added jupyter-black
+- added dfply
 
 1.1.4(2019/10/8)
 - update gridworld (added cliff4x8)

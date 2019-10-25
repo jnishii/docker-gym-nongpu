@@ -73,6 +73,8 @@ RUN cat /tmp/env_register.txt >> ${GYMDIR}/__init__.py
 COPY gridworld-gym/envs/mdp_gridworld.py ${GYMDIR}/toy_text/
 RUN  echo "from gym.envs.toy_text.mdp_gridworld import MDPGridworldEnv" >> ${GYMDIR}/toy_text/__init__.py
 
+# Step 4: install misc
+RUN python3 -m pip install dfply
 
 # Install graphic driver
 RUN apt-get install -y libgl1-mesa-dri libgl1-mesa-glx --no-install-recommends
@@ -107,10 +109,6 @@ RUN sudo python3 -m pip install plotchecker
 RUN python3 -m pip install jupyter-emacskeys
 RUN python3 -m pip install jupyter_contrib_nbextensions
 RUN jupyter contrib nbextension install --sys-prefix
-RUN python3 -m pip install black
-RUN jupyter nbextension install https://github.com/drillan/jupyter-black/archive/master.zip --sys-prefix
-RUN jupyter nbextension enable jupyter-black-master/jupyter-black
-
 
 RUN python3 -m pip install RISE
 RUN jupyter-nbextension install rise --py --sys-prefix
