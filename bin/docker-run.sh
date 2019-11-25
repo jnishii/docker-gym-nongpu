@@ -5,7 +5,7 @@ DKUSER=jovyan
 DKHOME=/home/${DKUSER}
 PWD=`pwd`
 WD="${PWD}"
-IMAGE=jnishii/docker-gym-nongpu
+IMAGE=jnishii/docker-gym-nongpu36
 
 DKOPT="--rm \
 	-h ${DKNAME} \
