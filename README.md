@@ -17,7 +17,7 @@ A Docker image playing with OpenAI Gym on jupyter notebook/lab.
 
 **4. Environments:**
 - [openAI Gym](https://github.com/openai/gym)
-	- with [mdp_gridworld](https://github.com/IRLL/reinforcement_learning_class)
+	- with [gridworld-gym](git@github.com:jnishii/gridworld-gym.git) (modified version of [mdp_gridworld](https://github.com/IRLL/reinforcement_learning_class))
 	- without Robotics and MuJoCo
 
 **5. Others:**
