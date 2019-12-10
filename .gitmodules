@@ -1,3 +1,6 @@
+[submodule "gym-maze"]
+	path = gym-maze
+	url = https://github.com/MattChanTK/gym-maze.git
 [submodule "gridworld-gym"]
 	path = gridworld-gym
 	url = https://github.com/jnishii/gridworld-gym.git
