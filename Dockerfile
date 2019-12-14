@@ -119,7 +119,7 @@ RUN jupyter nbextension enable hide_header/main --sys-prefix
 #RUN jupyter nbextension enable hide_input/main --sys-prefix
 RUN jupyter nbextension enable toc2/main --sys-prefix
 
-RUN python -m pip install black
+RUN python3 -m pip install black
 RUN jupyter nbextension install https://github.com/drillan/jupyter-black/archive/master.zip --sys-prefix
 RUN jupyter nbextension enable jupyter-black-master/jupyter-black --sys-prefix
 
