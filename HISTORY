@@ -1,4 +1,7 @@
-1.1.5(2019/12/10)
+1.1.7(2020/6/10)
+- rebuild with jupyter_client==5.3.1 to avoid kernel error on Windows 10
+
+1.1.6(2019/12/10)
 - fix gridworld
 - added jupyter-black
 
